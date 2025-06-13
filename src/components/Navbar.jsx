@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 
 const navItems = [
   { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
+  { name: "Portfolio", href: "#projects" },
   { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "About Us", href: "#about" },
+  { name: "Book a call", href: "#contact" },
 ];
 
 export const Navbar = () => {
@@ -35,7 +35,7 @@ export const Navbar = () => {
           href="#hero"
         >
           <span className="relative z-10">
-            <span className="text-glow text-foreground"> Portfolio </span>{" "}
+            <span className="text-glow text-foreground"> Momentum Media </span>{" "}
             {/* Portfolio */}
           </span>
         </a>
@@ -48,7 +48,15 @@ export const Navbar = () => {
               href={item.href}
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
-              {item.name}
+              {item.name === "Book a call" ? (
+  <span className="relative px-4 py-1 border border-purple-500 text-foreground animate-border-glow overflow-hidden">
+    <span className="relative z-10">Book a call</span>
+    <span className="absolute inset-0 border-[2px] border-purple-500 animate-border-line rounded-md pointer-events-none"></span>
+  </span>
+) : (
+  item.name
+)}
+
             </a>
           ))}
         </div>

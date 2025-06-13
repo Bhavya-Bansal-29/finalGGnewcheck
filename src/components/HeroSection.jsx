@@ -9,24 +9,24 @@ export const HeroSection = () => {
       <div className="container max-w-4xl mx-auto text-center z-10">
         <div className="space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <span className="opacity-0 animate-fade-in"> Hi, I'm</span>
+            <span className="opacity-0 animate-fade-in"> Hi, We're</span>
             <span className="text-primary opacity-0 animate-fade-in-delay-1">
               {" "}
-              Gopesh
+              Momentum
             </span>
             <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
               {" "}
-              Gupta
+              Media
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-           I craft compelling visual stories through the art of video editing. Specializing in post-production, I create videos that are both engaging and polished — blending creativity with precision to deliver impactful content.
+           Your one-stop creative agency for powerful content. From captivating video editing and stunning graphic design to strategic marketing, dynamic motion graphics, and scroll-stopping social media campaigns — we blend creativity and strategy to help your brand stand out.
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
             <a href="#projects" className="cosmic-button">
-              View My Work
+              Explore Our Work
             </a>
           </div>
         </div>

@@ -7,23 +7,29 @@ import { SkillsSection } from "../components/SkillsSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
+import { BackgroundVideo } from "../components/BackgroundVideo"; // 👈 new import
 
 export const Home = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen text-foreground overflow-x-hidden">
       {/* Theme Toggle */}
       <ThemeToggle />
+
+      {/* Video Background */}
+      <BackgroundVideo /> {/* 👈 add this before stars */}
+
       {/* Background Effects */}
       <StarBackground />
 
       {/* Navbar */}
       <Navbar />
+
       {/* Main Content */}
       <main>
         <HeroSection />
-        <AboutSection />
-        <SkillsSection />
         <ProjectsSection />
+        <SkillsSection />
+        <AboutSection />
         <ContactSection />
       </main>
 
@@ -32,3 +38,4 @@ export const Home = () => {
     </div>
   );
 };
+

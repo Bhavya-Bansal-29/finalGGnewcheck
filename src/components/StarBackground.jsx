@@ -60,7 +60,8 @@ export const StarBackground = () => {
   };
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    // <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
       {stars.map((star) => (
         <div
           key={star.id}
@@ -76,7 +77,7 @@ export const StarBackground = () => {
         />
       ))}
 
-      {meteors.map((meteor) => (
+      {/* {meteors.map((meteor) => (
         <div
           key={meteor.id}
           className="meteor animate-meteor"
@@ -89,7 +90,7 @@ export const StarBackground = () => {
             animationDuration: meteor.animationDuration + "s",
           }}
         />
-      ))}
+      ))} */}
     </div>
   );
 };
