@@ -8,7 +8,7 @@ export const BackgroundVideo = () => {
         playsInline
         className="w-full h-full object-cover brightness-[0.3]"
       >
-      <source src="/public/vd.mp4" type="video/mp4" />
+      <source src="/vd.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
