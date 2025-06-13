@@ -7,8 +7,7 @@ import { SkillsSection } from "../components/SkillsSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
-import { BackgroundVideo } from "../components/BackgroundVideo"; // 👈 new import
-
+// import { BackgroundVideo } from "../components/BackgroundVideo"; 
 export const Home = () => {
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden">
@@ -16,7 +15,7 @@ export const Home = () => {
       <ThemeToggle />
 
       {/* Video Background */}
-      <BackgroundVideo /> {/* 👈 add this before stars */}
+      {/* <BackgroundVideo />  */}
 
       {/* Background Effects */}
       <StarBackground />

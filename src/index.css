@@ -110,16 +110,16 @@
     @apply scroll-smooth;
   }
 
-  /* body {
+  body {
     @apply bg-background text-foreground transition-colors duration-300;
     font-feature-settings: "rlig" 1, "calt" 1;
-  } */
+  }
 
-  body, #root {
-  position: relative; /* ✅ Important */
+  /* body, #root {
+  position: relative; 
   z-index: 0;
   background: transparent;
-}
+} */
 
 }
 
