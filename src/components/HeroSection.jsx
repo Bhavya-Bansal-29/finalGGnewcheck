@@ -14,7 +14,7 @@ export const HeroSection = () => {
               {" "}
               Momentum
             </span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
+            <span className="text-gradient opacity-0 animate-fade-in-delay-2">
               {" "}
               Media
             </span>
