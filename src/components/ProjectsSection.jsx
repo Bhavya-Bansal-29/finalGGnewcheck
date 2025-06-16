@@ -16,13 +16,13 @@ export const ProjectsSection = () => {
   const graphicsLoopMain = [...graphicsLoop, ...graphicsLoop];
 
  const videoLinks = [
-  "https://www.youtube.com/embed/eAPqQFWEoKg?autoplay=1&mute=1&playsinline=1",
-  "https://www.youtube.com/embed/q3uXXh1sHcI?autoplay=1&mute=1&playsinline=1",
-  "https://www.youtube.com/embed/kgrV3_g9rYY?autoplay=1&mute=1&playsinline=1",
-];
-
+  "https://www.youtube.com/embed/306eCnSooGQ?autoplay=1&mute=1&playsinline=1",
+  "https://www.youtube.com/embed/IH0_GFmPuno?autoplay=1&mute=1&playsinline=1",
+  "https://www.youtube.com/embed/OXc-vIWHuy0?autoplay=1&mute=1&playsinline=1",
+]; 
   const videoLoop = [...videoLinks, ...videoLinks];
   const videoLoopMain = [...videoLoop, ...videoLoop];
+  // <iframe width="510" height="907" src="https://www.youtube.com/embed/OXc-vIWHuy0" title="Beautiful Animals #pangasinan" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
   // Infinite horizontal loop with pause support
   const startLoop = (controls, isPausedRef) => {
