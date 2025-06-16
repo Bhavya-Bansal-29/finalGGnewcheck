@@ -15,10 +15,14 @@ export const ProjectsSection = () => {
   const graphicsLoop = [...graphicsImages, ...graphicsImages];
   const graphicsLoopMain = [...graphicsLoop, ...graphicsLoop];
 
-  const videoLinks = [
-    "https://www.youtube.com/embed/eAPqQFWEoKg?si=MiC28MQgYPe0sXhZ",
-    "https://www.youtube.com/embed/q3uXXh1sHcI?si=dUb6xjLh3EoNaW0d",
-  ];
+ const videoLinks = [
+  "https://www.youtube.com/embed/eAPqQFWEoKg?autoplay=1&mute=1&playsinline=1",
+  "https://www.youtube.com/embed/q3uXXh1sHcI?autoplay=1&mute=1&playsinline=1",
+  "https://www.youtube.com/embed/kgrV3_g9rYY?autoplay=1&mute=1&playsinline=1",
+];
+
+  const videoLoop = [...videoLinks, ...videoLinks];
+  const videoLoopMain = [...videoLoop, ...videoLoop];
 
   // Infinite horizontal loop with pause support
   const startLoop = (controls, isPausedRef) => {
@@ -43,58 +47,43 @@ export const ProjectsSection = () => {
 
   useEffect(() => {
     startLoop(graphicsControls, () => graphicsPaused);
-    // startLoop(videoControls, () => videosPaused);
+    startLoop(videoControls, () => videosPaused);
   }, []);
 
   return (
     <section className="p-8 h-screen">
       <h2 className="text-3xl font-bold mb-6 text-center">Our Products</h2>
-{/* Videos Section Side-by-Side */}
-<div className="mb-6 flex flex-col md:flex-row gap-6">
-  {/* Creative Videos */}
-  <div className="flex-1">
-    <h3 className="text-2xl font-semibold mb-4">Creative Videos</h3>
-    <ul className="flex flex-col gap-4">
-      {videoLinks.map((src, i) => (
-        <li
-          key={i}
-           className="w-[80%] max-w-[480px] aspect-video rounded-lg overflow-hidden shadow-md mx-auto"        
-           >
-          <iframe
-            src={src}
-            title={`Creative Video ${i}`}
-            className="w-full h-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        </li>
-      ))}
-    </ul>
-  </div>
 
-  {/* Aesthetic Videos */}
-  <div className="flex-1">
-    <h3 className="text-2xl font-semibold mb-4">Aesthetic Videos</h3>
-    <ul className="flex flex-col gap-4">
-      {videoLinks.map((src, i) => (
-        <li
-          key={i}
-          className="w-[80%] max-w-[480px] aspect-video rounded-lg overflow-hidden shadow-md mx-auto" 
-        >
-          <iframe
-            src={src}
-            title={`Aesthetic Video ${i}`}
-            className="w-full h-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        </li>
-      ))}
-    </ul>
-  </div>
+     {/* Shorts Videos */}
+<div className="mb-6">
+  <h3 className="text-2xl font-semibold mb-4">Videos</h3>
+  <motion.ul
+    className="flex gap-4 pr-2 no-scrollbar"
+    animate={videoControls}
+    onMouseEnter={() => setVideosPaused(true)}
+    onMouseLeave={() => setVideosPaused(false)}
+  >
+    {videoLoopMain.map((src, i) => (
+      <li
+        key={i}
+        className="min-w-[280px] h-[500px] rounded-lg overflow-hidden shadow-md flex-shrink-0"
+      >
+        <iframe
+          src={src}
+          title={`Short ${i}`}
+          width="100%"
+          height="100%"
+          className="w-full h-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
+        />
+      </li>
+    ))}
+  </motion.ul>
 </div>
 
-
+   
 
       {/* Graphics */}
       <div>
