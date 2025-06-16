@@ -16,9 +16,9 @@ export const ProjectsSection = () => {
   const graphicsLoopMain = [...graphicsLoop, ...graphicsLoop];
 
  const videoLinks = [
-  "https://www.youtube.com/embed/306eCnSooGQ?autoplay=1&mute=1&playsinline=1",
-  "https://www.youtube.com/embed/IH0_GFmPuno?autoplay=1&mute=1&playsinline=1",
-  "https://www.youtube.com/embed/OXc-vIWHuy0?autoplay=1&mute=1&playsinline=1",
+  "https://www.youtube.com/embed/306eCnSooGQ",
+  "https://www.youtube.com/embed/IH0_GFmPuno",
+  "https://www.youtube.com/embed/OXc-vIWHuy0",
 ]; 
   const videoLoop = [...videoLinks, ...videoLinks];
   const videoLoopMain = [...videoLoop, ...videoLoop];
@@ -51,12 +51,12 @@ export const ProjectsSection = () => {
   }, []);
 
   return (
-    <section className="p-8 h-screen">
+    <section className="p-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Our Products</h2>
 
      {/* Shorts Videos */}
 <div className="mb-6">
-  <h3 className="text-2xl font-semibold mb-4">Videos</h3>
+  <h3 className="text-2xl font-semibold mb-4">Creative Videos</h3>
   <motion.ul
     className="flex gap-4 pr-2 no-scrollbar"
     animate={videoControls}
@@ -83,6 +83,35 @@ export const ProjectsSection = () => {
   </motion.ul>
 </div>
 
+
+  {/* Shorts Videos */}
+<div className="mb-6">
+  <h3 className="text-2xl font-semibold mb-4">Aesthetic Videos</h3>
+  <motion.ul
+    className="flex gap-4 pr-2 no-scrollbar"
+    animate={videoControls}
+    onMouseEnter={() => setVideosPaused(true)}
+    onMouseLeave={() => setVideosPaused(false)}
+  >
+    {videoLoopMain.map((src, i) => (
+      <li
+        key={i}
+        className="min-w-[280px] h-[500px] rounded-lg overflow-hidden shadow-md flex-shrink-0"
+      >
+        <iframe
+          src={src}
+          title={`Short ${i}`}
+          width="100%"
+          height="100%"
+          className="w-full h-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
+        />
+      </li>
+    ))}
+  </motion.ul>
+</div>
    
 
       {/* Graphics */}
