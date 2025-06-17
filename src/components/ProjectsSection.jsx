@@ -103,7 +103,8 @@ export const ProjectsSection = () => {
   }, []);
 
   return (
-    <section className="p-8 text-white">
+    <section className="min-h-screen w-screen overflow-x-hidden bg-black text-white">
+
       <h2 className="text-3xl font-bold mb-6 text-center">Our Products</h2>
 
       {/* Creative & Aesthetic */}
