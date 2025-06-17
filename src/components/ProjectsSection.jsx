@@ -21,59 +21,11 @@ export const ProjectsSection = () => {
   const creativeVideos = [
     "https://drive.google.com/file/d/1SiMGSvA0UZ9VdoGwJVjvQz89EOl9SPLs/preview",
     "https://drive.google.com/file/d/1lanFtVuraDOeZimgMN5-lmBncPGIQN6p/preview",
-    "https://drive.google.com/file/d/1SiMGSvA0UZ9VdoGwJVjvQz89EOl9SPLs/preview",
-    "https://drive.google.com/file/d/1lanFtVuraDOeZimgMN5-lmBncPGIQN6p/preview",
-    "https://drive.google.com/file/d/1SiMGSvA0UZ9VdoGwJVjvQz89EOl9SPLs/preview",
-    "https://drive.google.com/file/d/1lanFtVuraDOeZimgMN5-lmBncPGIQN6p/preview",
   ];
   const aestheticVideos = [
     "https://drive.google.com/file/d/1eJIEKRb1XdJQqp2-LnkCLXe_L4R4V5He/preview",
     "https://drive.google.com/file/d/1eJIEKRb1XdJQqp2-LnkCLXe_L4R4V5He/preview",
-    "https://drive.google.com/file/d/1eJIEKRb1XdJQqp2-LnkCLXe_L4R4V5He/preview",
-    "https://drive.google.com/file/d/1eJIEKRb1XdJQqp2-LnkCLXe_L4R4V5He/preview",
-    "https://drive.google.com/file/d/1eJIEKRb1XdJQqp2-LnkCLXe_L4R4V5He/preview",
   ];
-
-  // const startLoop = (controls, isPausedRef) => {
-  //   const loop = async () => {
-  //     while (true) {
-  //       if (!isPausedRef()) {
-  //         await controls.start({
-  //           x: "-100%",
-  //           transition: {
-  //             duration: 20,
-  //             ease: "linear",
-  //           },
-  //         });
-  //         controls.set({ x: "0%" });
-  //       } else {
-  //         await new Promise((res) => setTimeout(res, 100));
-  //       }
-  //     }
-  //   };
-  //   loop();
-  // };
-
-//   const startLoop = (controls, isPausedRef, direction = "left") => {
-//   const loop = async () => {
-//     while (true) {
-//       if (!isPausedRef()) {
-//         await controls.start({
-//           x: direction === "left" ? "-50%" : "50%",
-//           transition: {
-//             duration: 20,
-//             ease: "linear",
-//             repeat: Infinity,
-//             repeatType: "loop",
-//           },
-//         });
-//       } else {
-//         await controls.stop();
-//       }
-//     }
-//   };
-//   loop();
-// };
 
 const startLoop = (controls, isPausedRef, direction = "left") => {
   if (!isPausedRef()) {
@@ -134,69 +86,48 @@ const stopLoop = (controls) => {
 
       <h2 className="text-3xl font-bold mb-6 text-center">Our Products</h2>
 
-      {/* Creative & Aesthetic */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-        {/* Creative Section */}
-        <div className=" text-white rounded-l-2xl p-4 ml-20 mr-10 shadow-md overflow-hidden">
-          <h2 className="text-center font-bold text-xl mb-4">Creative Videos</h2>
-         <motion.div
-  className="relative flex gap-4 w-[calc(250px*6)] overflow-hidden" // 6 iframes
-  animate={creativeControls}
-   onMouseEnter={() => {
-  setCreativePaused(true);
-  stopLoop(creativeControls);
-}}
-onMouseLeave={() => {
-  setCreativePaused(false);
-  startLoop(creativeControls, () => false); // Force start
-}}
->
-  {[...creativeVideos, ...creativeVideos].map((src, i) => (
-    <iframe
-      key={i}
-      src={src}
-      className="rounded-xl w-[250px] h-[450px] flex-shrink-0"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerPolicy="strict-origin-when-cross-origin"
-      allowFullScreen
-      title={`Creative ${i}`}
-    />
-  ))}
-</motion.div>
-
-        </div>
-
-        {/* Aesthetic Section */}
-        <div className=" text-white rounded-r-2xl p-4 ml-10 mr-20 shadow-md overflow-hidden">
-          <h2 className="text-center font-bold text-xl mb-4">Aesthetic Videos</h2>
-          <motion.div
-  className="relative flex gap-4 w-[calc(250px*6)] overflow-hidden" // 6 iframes
-  animate={aestheticControls}
-  onMouseEnter={() => {
-  setAestheticPaused(true);
-  stopLoop(aestheticControls);
-}}
-onMouseLeave={() => {
-  setAestheticPaused(false);
-  startLoop(aestheticControls, () => false, "right"); // Correct direction
-}}
-
->
-  {[...aestheticVideos, ...aestheticVideos].map((src, i) => (
-    <iframe
-      key={i}
-      src={src}
-      className="rounded-xl w-[250px] h-[450px] flex-shrink-0"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerPolicy="strict-origin-when-cross-origin"
-      allowFullScreen
-      title={`Aesthetic ${i}`}
-    />
-  ))}
-</motion.div>
-
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10 px-10">
+  {/* Creative Section */}
+<div className="gradient-border rounded-2xl p-1">
+  <div className="rounded-2xl bg-transparent p-4">
+      <h2 className="text-center font-bold text-xl mb-4 text-white">Creative Videos</h2>
+      <div className="flex flex-wrap justify-center gap-4">
+        {creativeVideos.map((src, i) => (
+          <iframe
+            key={i}
+            src={src}
+            className="rounded-xl w-[250px] h-[450px] flex-shrink-0"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            title={`Creative ${i}`}
+          />
+        ))}
       </div>
+    </div>
+  </div>
+
+  {/* Aesthetic Section */}
+  <div className="p-[3px] rounded-2xl bg-gradient-to-r from-purple-600 to-black">
+    <div className="rounded-2xl bg-transparent p-0">
+      <h2 className="text-center font-bold text-xl mb-4 text-white">Aesthetic Videos</h2>
+      <div className="flex flex-wrap justify-center gap-4">
+        {aestheticVideos.map((src, i) => (
+          <iframe
+            key={i}
+            src={src}
+            className="rounded-xl w-[250px] h-[450px] flex-shrink-0"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            title={`Aesthetic ${i}`}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
 
       {/* Graphics */}
       <div>

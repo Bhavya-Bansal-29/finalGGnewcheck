@@ -235,3 +235,22 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+.gradient-border {
+  background: linear-gradient(to right, #8b5cf6, #6366f1); /* Tailwind's purple-500 to indigo-500 */
+  border-radius: 1rem;
+  position: relative;
+  z-index: 0;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  background: black; /* Or transparent, or use backdrop */
+  border-radius: 0.875rem; /* slightly smaller to fit inside */
+  z-index: -1;
+}
+
