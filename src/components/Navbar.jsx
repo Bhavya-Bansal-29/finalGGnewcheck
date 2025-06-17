@@ -26,7 +26,7 @@ export const Navbar = () => {
     <nav
       className={cn(
         "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+        isScrolled ? "py-3 bg-black bg-opacity-90 backdrop-blur-md shadow-md" : "py-5"
       )}
     >
       <div className="container flex items-center justify-between">
@@ -46,7 +46,8 @@ export const Navbar = () => {
             <a
               key={key}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
+             className="text-white hover:text-primary transition-colors duration-300"
+
             >
               {item.name === "Book a call" ? (
   <span className="relative px-4 py-1 border border-purple-500 text-foreground animate-border-glow overflow-hidden">
