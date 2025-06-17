@@ -54,26 +54,45 @@ export const ProjectsSection = () => {
   //   loop();
   // };
 
-  const startLoop = (controls, isPausedRef, direction = "left") => {
-  const loop = async () => {
-    while (true) {
-      if (!isPausedRef()) {
-        await controls.start({
-          x: direction === "left" ? "-50%" : "50%",
-          transition: {
-            duration: 20,
-            ease: "linear",
-            repeat: Infinity,
-            repeatType: "loop",
-          },
-        });
-      } else {
-        await controls.stop();
-      }
-    }
-  };
-  loop();
+//   const startLoop = (controls, isPausedRef, direction = "left") => {
+//   const loop = async () => {
+//     while (true) {
+//       if (!isPausedRef()) {
+//         await controls.start({
+//           x: direction === "left" ? "-50%" : "50%",
+//           transition: {
+//             duration: 20,
+//             ease: "linear",
+//             repeat: Infinity,
+//             repeatType: "loop",
+//           },
+//         });
+//       } else {
+//         await controls.stop();
+//       }
+//     }
+//   };
+//   loop();
+// };
+
+const startLoop = (controls, isPausedRef, direction = "left") => {
+  if (!isPausedRef()) {
+    controls.start({
+      x: direction === "left" ? "-50%" : "50%",
+      transition: {
+        duration: 20,
+        ease: "linear",
+        repeat: Infinity,
+        repeatType: "loop",
+      },
+    });
+  }
 };
+
+const stopLoop = (controls) => {
+  controls.stop();
+};
+
 
 
   const startLoopReverse = (controls, isPausedRef) => {
@@ -96,27 +115,41 @@ export const ProjectsSection = () => {
     loop();
   };
 
-  useEffect(() => {
-    startLoop(graphicsControls, () => graphicsPaused);
-    startLoop(creativeControls, () => creativePaused);
-    startLoopReverse(aestheticControls, () => aestheticPaused);
-  }, []);
+ useEffect(() => {
+  startLoop(graphicsControls, () => graphicsPaused);
+  startLoop(creativeControls, () => creativePaused, "left");
+  startLoop(aestheticControls, () => aestheticPaused, "right");
+
+  // Optional: stop on unmount
+  return () => {
+    graphicsControls.stop();
+    creativeControls.stop();
+    aestheticControls.stop();
+  };
+}, []);
+
 
   return (
-    <section className="min-h-screen w-screen overflow-x-hidden bg-black text-white">
+    <section className="min-h-screen w-screen overflow-x-hidden text-white">
 
       <h2 className="text-3xl font-bold mb-6 text-center">Our Products</h2>
 
       {/* Creative & Aesthetic */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
         {/* Creative Section */}
-        <div className=" text-white rounded-l-2xl p-4 ml-20 shadow-md overflow-hidden">
+        <div className=" text-white rounded-l-2xl p-4 ml-20 mr-10 shadow-md overflow-hidden">
           <h2 className="text-center font-bold text-xl mb-4">Creative Videos</h2>
          <motion.div
   className="relative flex gap-4 w-[calc(250px*6)] overflow-hidden" // 6 iframes
   animate={creativeControls}
-  onMouseEnter={() => setCreativePaused(true)}
-  onMouseLeave={() => setCreativePaused(false)}
+   onMouseEnter={() => {
+  setCreativePaused(true);
+  stopLoop(creativeControls);
+}}
+onMouseLeave={() => {
+  setCreativePaused(false);
+  startLoop(creativeControls, () => false); // Force start
+}}
 >
   {[...creativeVideos, ...creativeVideos].map((src, i) => (
     <iframe
@@ -134,13 +167,20 @@ export const ProjectsSection = () => {
         </div>
 
         {/* Aesthetic Section */}
-        <div className="border-amber-50 text-white rounded-r-2xl p-4 mr-20 shadow-md overflow-hidden">
+        <div className=" text-white rounded-r-2xl p-4 ml-10 mr-20 shadow-md overflow-hidden">
           <h2 className="text-center font-bold text-xl mb-4">Aesthetic Videos</h2>
           <motion.div
   className="relative flex gap-4 w-[calc(250px*6)] overflow-hidden" // 6 iframes
-  animate={creativeControls}
-  onMouseEnter={() => setCreativePaused(true)}
-  onMouseLeave={() => setCreativePaused(false)}
+  animate={aestheticControls}
+  onMouseEnter={() => {
+  setAestheticPaused(true);
+  stopLoop(aestheticControls);
+}}
+onMouseLeave={() => {
+  setAestheticPaused(false);
+  startLoop(aestheticControls, () => false, "right"); // Correct direction
+}}
+
 >
   {[...aestheticVideos, ...aestheticVideos].map((src, i) => (
     <iframe
@@ -150,7 +190,7 @@ export const ProjectsSection = () => {
       allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerPolicy="strict-origin-when-cross-origin"
       allowFullScreen
-      title={`Creative ${i}`}
+      title={`Aesthetic ${i}`}
     />
   ))}
 </motion.div>
@@ -164,8 +204,15 @@ export const ProjectsSection = () => {
         <motion.ul
           className="flex gap-4 overflow-x-auto no-scrollbar"
           animate={graphicsControls}
-          onMouseEnter={() => setGraphicsPaused(true)}
-          onMouseLeave={() => setGraphicsPaused(false)}
+          onMouseEnter={() => {
+  setGraphicsPaused(true);
+  stopLoop(graphicsControls);
+}}
+onMouseLeave={() => {
+  setGraphicsPaused(false);
+  startLoop(graphicsControls, () => false); // Force start
+}}
+
         >
           {graphicsLoopMain.map((img, idx) => (
             <li
