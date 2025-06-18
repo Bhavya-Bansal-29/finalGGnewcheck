@@ -12,7 +12,7 @@ export const ClickCursorCircle = () => {
 
     const handleClick = () => {
       setBlinking(true);
-      setTimeout(() => setBlinking(false), 400); // faster blink
+      setTimeout(() => setBlinking(false), 400);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -28,17 +28,20 @@ export const ClickCursorCircle = () => {
     <AnimatePresence>
       <motion.div
         key="cursor-circle"
-        animate={{
-          left: coords.x - 12,
+        initial={false}
+        animate={blinking ? { scale: [1, 1.3, 1] } : {}}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        style={{
+          position: "fixed",
           top: coords.y - 12,
-          opacity: blinking ? [1, 0.2, 1] : 1,
-          scale: blinking ? [1, 1.3, 1] : 1,
+          left: coords.x - 12,
+          width: "24px",
+          height: "24px",
+          borderRadius: "50%",
+          backgroundColor: "rgba(255, 255, 255, 0.6)", // white fill with 60% opacity
+          pointerEvents: "none",
+          zIndex: 9999,
         }}
-        transition={{
-          duration: blinking ? 0.4 : 0.15,
-          ease: "easeInOut",
-        }}
-        className="fixed z-[9999] w-6 h-6 rounded-full border-2 border-white pointer-events-none"
       />
     </AnimatePresence>
   );
