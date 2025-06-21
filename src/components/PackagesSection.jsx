@@ -44,53 +44,78 @@ export const PackagesSection = () => {
         {/* Animated Text Content */}
         <AnimatePresence mode="wait">
           {activeTab === "individual" && (
-            <motion.div
-              key="individual"
-              variants={fadeVariant}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="space-y-6 text-lg md:text-xl font-medium text-left max-w-3xl mx-auto"
-            >
-              <p><strong>BASIC</strong> – 7 Reels / 5 Posts / 4 Stories – ₹12,799</p>
-              <p><strong>STANDARD</strong> – 10 Reels / 8 Posts / 10 Stories – ₹19,399</p>
-              <p><strong>ADVANCED</strong> – 13 Reels / 12 Posts / 12 Stories – ₹26,399</p>
-              <hr className="my-4 border-white/20" />
-              <p className="text-lg font-semibold">Video Genre:</p>
-              <p><strong>BASIC</strong> – 3 Aesthetic / 5 Creative</p>
-              <p><strong>STANDARD</strong> – 4 Aesthetic / 6 Creative</p>
-              <p><strong>ADVANCED</strong> – 6 Aesthetic / 7 Creative</p>
-            </motion.div>
+           <motion.div
+  key="individual"
+  variants={fadeVariant}
+  initial="hidden"
+  animate="visible"
+  exit="exit"
+  className="flex flex-col md:flex-row gap-8 justify-center text-left max-w-5xl mx-auto"
+>
+  {/* BASIC */}
+  <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
+    <p><strong>BASIC</strong> – 7 Reels / 5 Posts / 4 Stories</p>
+    <p>₹12,799</p>
+    <hr className="border-white/20" />
+    <p className="text-lg font-semibold">Video Genre:</p>
+    <p>3 Aesthetic / 5 Creative</p>
+  </div>
+
+  {/* STANDARD */}
+  <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
+    <p><strong>STANDARD</strong> – 10 Reels / 8 Posts / 10 Stories</p>
+    <p>₹19,399</p>
+    <hr className="border-white/20" />
+    <p className="text-lg font-semibold">Video Genre:</p>
+    <p>4 Aesthetic / 6 Creative</p>
+  </div>
+
+  {/* ADVANCED */}
+  <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
+    <p><strong>ADVANCED</strong> – 13 Reels / 12 Posts / 12 Stories</p>
+    <p>₹26,399</p>
+    <hr className="border-white/20" />
+    <p className="text-lg font-semibold">Video Genre:</p>
+    <p>6 Aesthetic / 7 Creative</p>
+  </div>
+</motion.div>
+
           )}
 
           {activeTab === "monthly" && (
-            <motion.div
-              key="monthly"
-              variants={fadeVariant}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="space-y-6 text-lg md:text-xl font-medium text-left max-w-3xl mx-auto"
-            >
-              <p><strong>BASIC</strong></p>
-              <p>1 Month – ₹12,799</p>
-              <p>3 Month – ₹12,599 × 3 = ₹37,800</p>
-              <p>6 Month – ₹12,299 × 6 = ₹73,800</p>
+          <motion.div
+  key="monthly"
+  variants={fadeVariant}
+  initial="hidden"
+  animate="visible"
+  exit="exit"
+  className="flex flex-col md:flex-row gap-8 justify-center text-left max-w-5xl mx-auto"
+>
+  {/* BASIC */}
+  <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
+    <p><strong>BASIC</strong></p>
+    <p>1 Month – ₹12,799</p>
+    <p>3 Month – ₹12,599 × 3 = ₹37,800</p>
+    <p>6 Month – ₹12,299 × 6 = ₹73,800</p>
+  </div>
 
-              <hr className="my-4 border-white/20" />
+  {/* STANDARD */}
+  <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
+    <p><strong>STANDARD</strong></p>
+    <p>1 Month – ₹19,399</p>
+    <p>3 Month – ₹19,149 × 3 = ₹57,447</p>
+    <p>6 Month – ₹18,899 × 6 = ₹113,394</p>
+  </div>
 
-              <p><strong>STANDARD</strong></p>
-              <p>1 Month – ₹19,399</p>
-              <p>3 Month – ₹19,149 × 3 = ₹57,447</p>
-              <p>6 Month – ₹18,899 × 6 = ₹113,394</p>
+  {/* ADVANCED */}
+  <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
+    <p><strong>ADVANCED</strong></p>
+    <p>1 Month – ₹26,399</p>
+    <p>3 Month – ₹26,099 × 3 = ₹78,297</p>
+    <p>6 Month – ₹25,799 × 6 = ₹154,794</p>
+  </div>
+</motion.div>
 
-              <hr className="my-4 border-white/20" />
-
-              <p><strong>ADVANCED</strong></p>
-              <p>1 Month – ₹26,399</p>
-              <p>3 Month – ₹26,099 × 3 = ₹78,297</p>
-              <p>6 Month – ₹25,799 × 6 = ₹154,794</p>
-            </motion.div>
           )}
         </AnimatePresence>
       </div>
