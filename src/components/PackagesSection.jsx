@@ -95,7 +95,9 @@ export const PackagesSection = () => {
   <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
     <p><strong>BASIC</strong></p>
     <p>1 Month – ₹12,799</p>
+    <hr className="border-white/20" />
     <p>3 Month – ₹12,599 × 3 = ₹37,800</p>
+    <hr className="border-white/20" />
     <p>6 Month – ₹12,299 × 6 = ₹73,800</p>
   </div>
 
@@ -103,7 +105,9 @@ export const PackagesSection = () => {
   <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
     <p><strong>STANDARD</strong></p>
     <p>1 Month – ₹19,399</p>
+    <hr className="border-white/20" />
     <p>3 Month – ₹19,149 × 3 = ₹57,447</p>
+    <hr className="border-white/20" />
     <p>6 Month – ₹18,899 × 6 = ₹113,394</p>
   </div>
 
@@ -111,7 +115,9 @@ export const PackagesSection = () => {
   <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
     <p><strong>ADVANCED</strong></p>
     <p>1 Month – ₹26,399</p>
+    <hr className="border-white/20" />
     <p>3 Month – ₹26,099 × 3 = ₹78,297</p>
+    <hr className="border-white/20" />
     <p>6 Month – ₹25,799 × 6 = ₹154,794</p>
   </div>
 </motion.div>
