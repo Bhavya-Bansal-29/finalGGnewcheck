@@ -3,7 +3,7 @@ import { useInView } from "react-intersection-observer";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const PackagesSection = () => {
-  const [activeTab, setActiveTab] = useState(null);
+  const [activeTab, setActiveTab] = useState("individual");
   const { ref, inView } = useInView({ threshold: 0.3 });
 
   const fadeVariant = {
