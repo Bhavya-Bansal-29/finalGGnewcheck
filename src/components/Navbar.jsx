@@ -7,10 +7,11 @@ const navItems = [
   { name: "Portfolio", href: "#projects" },
   { name: "Packages", href: "#packages" },
   { name: "About Us", href: "#about" },
+  { name: "Join Us", href: "#join" },
   { name: "Book a call", href: "#contact" },
 ];
 
-export const Navbar = () => {
+export const Navbar = ({ onJoinUsClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -40,24 +41,28 @@ export const Navbar = () => {
           </span>
         </a>
 
-        {/* desktop nav */}
+         {/* Desktop Nav */}
         <div className="hidden md:flex space-x-8">
           {navItems.map((item, key) => (
             <a
               key={key}
               href={item.href}
-             className="text-white hover:text-primary transition-colors duration-300"
-
+              onClick={(e) => {
+                if (item.name === "Join Us") {
+                  e.preventDefault();
+                  onJoinUsClick?.(); // Call parent function
+                }
+              }}
+              className="text-white hover:text-primary transition-colors duration-300"
             >
               {item.name === "Book a call" ? (
-  <span className="relative px-4 py-1 border border-purple-500 text-foreground animate-border-glow overflow-hidden">
-    <span className="relative z-10">Book a call</span>
-    <span className="absolute inset-0 border-[2px] border-purple-500 animate-border-line rounded-md pointer-events-none"></span>
-  </span>
-) : (
-  item.name
-)}
-
+                <span className="relative px-4 py-1 border border-purple-500 text-foreground animate-border-glow overflow-hidden">
+                  <span className="relative z-10">Book a call</span>
+                  <span className="absolute inset-0 border-[2px] border-purple-500 animate-border-line rounded-md pointer-events-none"></span>
+                </span>
+              ) : (
+                item.name
+              )}
             </a>
           ))}
         </div>
@@ -86,8 +91,16 @@ export const Navbar = () => {
               <a
                 key={key}
                 href={item.href}
+                onClick={(e) => {
+                  if (item.name === "Join Us") {
+                    e.preventDefault();
+                    setIsMenuOpen(false);
+                    onJoinUsClick?.();
+                  } else {
+                    setIsMenuOpen(false);
+                  }
+                }}
                 className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </a>

@@ -9,32 +9,41 @@ import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 import { BackgroundVideo } from "../components/BackgroundVideo"; 
 import { PackagesSection } from "../components/PackagesSection";
+import { JoinusSection } from "../components/JoinusSection"; 
+import { useRef, useState } from "react";
 export const Home = () => {
+
+  const [showJoinUs, setShowJoinUs] = useState(false);
+  const joinUsRef = useRef(null);
+
+  const handleJoinUsClick = () => {
+    setShowJoinUs(true);
+    setTimeout(() => {
+      joinUsRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 50); // small delay to ensure rendering
+  };
+
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden">
-      {/* Theme Toggle */}
       <ThemeToggle />
-
-      {/* Video Background */}
-      <BackgroundVideo /> 
-
-      {/* Background Effects */}
+      <BackgroundVideo />
       <StarBackground />
+      <Navbar onJoinUsClick={handleJoinUsClick} />
 
-      {/* Navbar */}
-      <Navbar />
-
-      {/* Main Content */}
       <main>
         <HeroSection />
         <ProjectsSection />
-        {/* <SkillsSection /> */}
         <PackagesSection />
         <AboutSection />
+         {showJoinUs && (
+          <div ref={joinUsRef}>
+            <JoinusSection />
+          </div>
+        )}
         <ContactSection />
+       
       </main>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
