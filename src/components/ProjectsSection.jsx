@@ -10,9 +10,14 @@ import "swiper/css";
 export const ProjectsSection = () => {
   const swiperRef = useRef(null);
   const graphicsImages = [
-    "./download.jpg",
-    "./instagram typography ideas.jpg",
-    "./All The Way UP.jpg",
+    "./g1.jpg",
+    "./g2.png",
+    "./g3.png",
+    "./g4.png",
+    "./g5.png",
+    "./g6.png",
+    "./g7.jpg",
+    "./g8.png",
   ];
   const graphicsLoopMain = [
     ...graphicsImages,
