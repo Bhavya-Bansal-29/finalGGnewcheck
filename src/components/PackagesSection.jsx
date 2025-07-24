@@ -58,7 +58,7 @@ export const PackagesSection = () => {
     <p>₹12,799</p>
     <hr className="border-white/20" />
     <p className="text-lg font-semibold">Video Genre:</p>
-    <p>3 Aesthetic / 5 Creative</p>
+    <p>2 Aesthetic / 5 Creative</p>
   </div>
 
   {/* STANDARD */}
