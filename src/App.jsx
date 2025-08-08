@@ -2,7 +2,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import { Toaster } from "@/components/ui/toaster";
-import { ClickCursorCircle } from "./components/ClickCursorCircle"; // 👈 import here
+import { ClickCursorCircle } from "./components/ClickCursorCircle";
+import { SpeedInsights } from '@vercel/speed-insights/react';
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <SpeedInsights />
     </>
   );
 }
