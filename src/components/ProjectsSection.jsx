@@ -27,14 +27,15 @@ export const ProjectsSection = () => {
 
   const creativeVideos = [
     "https://drive.google.com/file/d/1SiMGSvA0UZ9VdoGwJVjvQz89EOl9SPLs/preview",
-    "https://drive.google.com/file/d/1lanFtVuraDOeZimgMN5-lmBncPGIQN6p/preview",
+    "https://drive.google.com/file/d/1FuX20dnK4HuxYc5gMpJ4OgM6fu-oG4VW/preview",
   ];
 
   const aestheticVideos = [
-    "https://drive.google.com/file/d/1eJIEKRb1XdJQqp2-LnkCLXe_L4R4V5He/preview",
-    "https://drive.google.com/file/d/1eJIEKRb1XdJQqp2-LnkCLXe_L4R4V5He/preview",
+    "https://drive.google.com/file/d/1BewCTZT0T-k0Nyst_uNh9g78zo9fzwFh/preview",
+    "https://drive.google.com/file/d/1jCW0VjfGksaSNyQ9deA3eBcqFo-iZVQ_/preview",
   ];
 
+  
   return (
     <section
       id="projects"

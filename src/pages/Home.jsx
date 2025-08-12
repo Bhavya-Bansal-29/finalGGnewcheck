@@ -1,18 +1,31 @@
+import { Suspense, useRef, useState, lazy } from "react";
 import { Navbar } from "../components/Navbar";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { StarBackground } from "@/components/StarBackground";
 import { HeroSection } from "../components/HeroSection";
-import { AboutSection } from "../components/AboutSection";
-import { SkillsSection } from "../components/SkillsSection";
-import { ProjectsSection } from "../components/ProjectsSection";
-import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
-import { BackgroundVideo } from "../components/BackgroundVideo"; 
-import { PackagesSection } from "../components/PackagesSection";
-import { JoinusSection } from "../components/JoinusSection"; 
-import { useRef, useState } from "react";
-export const Home = () => {
 
+const BackgroundVideo = lazy(() =>
+  import("../components/BackgroundVideo").then((module) => ({ default: module.BackgroundVideo }))
+);
+const ProjectsSection = lazy(() =>
+  import("../components/ProjectsSection").then((module) => ({ default: module.ProjectsSection }))
+);
+const PackagesSection = lazy(() =>
+  import("../components/PackagesSection").then((module) => ({ default: module.PackagesSection }))
+);
+const AboutSection = lazy(() =>
+  import("../components/AboutSection").then((module) => ({ default: module.AboutSection }))
+);
+const JoinusSection = lazy(() =>
+  import("../components/JoinusSection").then((module) => ({ default: module.JoinusSection }))
+);
+const ContactSection = lazy(() =>
+  import("../components/ContactSection").then((module) => ({ default: module.ContactSection }))
+);
+
+
+export const Home = () => {
   const [showJoinUs, setShowJoinUs] = useState(false);
   const joinUsRef = useRef(null);
 
@@ -20,32 +33,47 @@ export const Home = () => {
     setShowJoinUs(true);
     setTimeout(() => {
       joinUsRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 50); // small delay to ensure rendering
+    }, 50);
   };
 
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden">
       <ThemeToggle />
-      <BackgroundVideo />
+      <Suspense fallback={null}>
+        <BackgroundVideo />
+      </Suspense>
       <StarBackground />
       <Navbar onJoinUsClick={handleJoinUsClick} />
 
       <main>
         <HeroSection />
-        <ProjectsSection />
-        <PackagesSection />
-        <AboutSection />
-         {showJoinUs && (
+
+        <Suspense fallback={null}>
+          <ProjectsSection />
+        </Suspense>
+
+        <Suspense fallback={null}>
+          <PackagesSection />
+        </Suspense>
+
+        <Suspense fallback={null}>
+          <AboutSection />
+        </Suspense>
+
+        {showJoinUs && (
           <div ref={joinUsRef}>
-            <JoinusSection />
+            <Suspense fallback={null}>
+              <JoinusSection />
+            </Suspense>
           </div>
         )}
-        <ContactSection />
-       
+
+        <Suspense fallback={null}>
+          <ContactSection />
+        </Suspense>
       </main>
 
       <Footer />
     </div>
   );
 };
-
