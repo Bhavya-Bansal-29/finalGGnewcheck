@@ -43,44 +43,57 @@ export const PackagesSection = () => {
 
         {/* Animated Text Content */}
         <AnimatePresence mode="wait">
-          {activeTab === "individual" && (
-           <motion.div
-  key="individual"
-  variants={fadeVariant}
-  initial="hidden"
-  animate="visible"
-  exit="exit"
-  className="flex flex-col md:flex-row gap-8 justify-center text-left max-w-5xl mx-auto"
->
-  {/* BASIC */}
-  <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
-    <p><strong>BASIC</strong> – 7 Reels / 5 Posts / 4 Stories</p>
-    <p>₹12,799</p>
-    <hr className="border-white/20" />
-    <p className="text-lg font-semibold">Video Genre:</p>
-    <p>2 Aesthetic / 5 Creative</p>
-  </div>
+         {activeTab === "individual" && (
+  <motion.div
+    key="individual"
+    variants={fadeVariant}
+    initial="hidden"
+    animate="visible"
+    exit="exit"
+    className="flex flex-col items-center gap-8 text-left max-w-5xl mx-auto"
+  >
+    {/* Cards container */}
+    <div className="flex flex-col md:flex-row gap-8 w-full">
+      {/* BASIC */}
+      <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
+        <p><strong>BASIC</strong> – 7 Reels / 5 Posts / 4 Stories</p>
+        <p>₹12,799</p>
+        <hr className="border-white/20" />
+        <p className="text-lg font-semibold">Video Genre:</p>
+        <p>2 Aesthetic / 5 Creative</p>
+      </div>
 
-  {/* STANDARD */}
-  <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
-    <p><strong>STANDARD</strong> – 10 Reels / 8 Posts / 10 Stories</p>
-    <p>₹19,399</p>
-    <hr className="border-white/20" />
-    <p className="text-lg font-semibold">Video Genre:</p>
-    <p>4 Aesthetic / 6 Creative</p>
-  </div>
+      {/* STANDARD */}
+      <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
+        <p><strong>STANDARD</strong> – 10 Reels / 8 Posts / 10 Stories</p>
+        <p>₹19,399</p>
+        <hr className="border-white/20" />
+        <p className="text-lg font-semibold">Video Genre:</p>
+        <p>4 Aesthetic / 6 Creative</p>
+      </div>
 
-  {/* ADVANCED */}
-  <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
-    <p><strong>ADVANCED</strong> – 13 Reels / 12 Posts / 12 Stories</p>
-    <p>₹26,399</p>
-    <hr className="border-white/20" />
-    <p className="text-lg font-semibold">Video Genre:</p>
-    <p>6 Aesthetic / 7 Creative</p>
-  </div>
-</motion.div>
+      {/* ADVANCED */}
+      <div className="flex-1 space-y-2 bg-white/5 p-6 rounded-xl backdrop-blur-sm">
+        <p><strong>ADVANCED</strong> – 13 Reels / 12 Posts / 12 Stories</p>
+        <p>₹26,399</p>
+        <hr className="border-white/20" />
+        <p className="text-lg font-semibold">Video Genre:</p>
+        <p>6 Aesthetic / 7 Creative</p>
+      </div>
+    </div>
 
-          )}
+    {/* Watermark note at the bottom */}
+    <motion.p
+      initial={{ opacity: 0, y: 5 }}
+      animate={{ opacity: 0.6, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.1 }}
+      className="text-sm italic text-white/60"
+    >
+      1 Reel, 1 Post & 1 Story for ₹2,000
+    </motion.p>
+  </motion.div>
+)}
+
 
           {activeTab === "monthly" && (
           <motion.div
