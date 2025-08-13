@@ -12,7 +12,7 @@ function RootApp() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIntro(false);
-    }, 3000); // 5 seconds
+    }, 4000); // 5 seconds
 
     return () => clearTimeout(timer);
   }, []);
